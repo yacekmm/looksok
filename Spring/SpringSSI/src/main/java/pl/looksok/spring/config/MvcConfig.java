@@ -1,4 +1,4 @@
-package pl.looksok.spring;
+package pl.looksok.spring.config;
 
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
