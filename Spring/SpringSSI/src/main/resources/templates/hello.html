@@ -5,12 +5,12 @@
         <title>Spring MVC Example</title>
     </head>
     <body>
-       	<div th:include="header::head"></div>
+       	<div th:include="fragments/header::head"></div>
     
         <h1>Welcome!</h1>
         <p>Click <a th:href="@{/greeting}">here</a> to advance to the next page.</p>
 
-        <div th:include="footer::foot"></div>
+        <div th:include="fragments/footer::foot"></div>
 
     </body>
 </html>
