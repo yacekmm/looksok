@@ -5,8 +5,8 @@
         <title>Spring MVC Example</title>
     </head>
     <body>
-        <h1>Welcome!</h1>
+        <h1 th:text="#{hello.header}"></h1>
 
-        <p>Click <a th:href="@{/greeting}">here</a> to advance to the next page.</p>
+        <p><a th:href="@{/greeting}" th:text="#{hello.content}"></a></p>
     </body>
 </html>
