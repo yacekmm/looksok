@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-starter-security")
 }
 
 task wrapper(type: Wrapper) {
