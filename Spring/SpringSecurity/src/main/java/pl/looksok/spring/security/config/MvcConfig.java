@@ -1,4 +1,4 @@
-package pl.looksok.spring.config;
+package pl.looksok.spring.security.config;
 
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter;
 import org.springframework.context.annotation.Configuration;
