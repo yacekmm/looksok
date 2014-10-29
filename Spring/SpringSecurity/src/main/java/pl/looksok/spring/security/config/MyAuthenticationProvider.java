@@ -23,31 +23,31 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
 		userRepository.put("user", new User("user", "pwd", "USER"));
 	}
 	
-@Override
-public Authentication authenticate(Authentication authentication)
-		throws AuthenticationException {
+	@Override
+	public Authentication authenticate(Authentication authentication)
+			throws AuthenticationException {
+		
+		User userFromRepository = userRepository.get(authentication.getName().toLowerCase());
+		if(userFromRepository != null){
+			if(userFromRepository.password.equals(authentication.getCredentials())){
+				List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
+				grantedAuths.add(new SimpleGrantedAuthority(userFromRepository.role));
+				
+				return new UsernamePasswordAuthenticationToken(
+						userFromRepository.login, 
+						userFromRepository.password, 
+						grantedAuths);
+			}else{
+				throw new BadCredentialsException("invalid password!");
+			}
 	
-	User userFromRepository = userRepository.get(authentication.getName().toLowerCase());
-	if(userFromRepository != null){
-		if(userFromRepository.password.equals(authentication.getCredentials())){
-			List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
-			grantedAuths.add(new SimpleGrantedAuthority(userFromRepository.role));
-			
-			return new UsernamePasswordAuthenticationToken(
-					userFromRepository.login, 
-					userFromRepository.password, 
-					grantedAuths);
+			//here you can provide even more security checks like 
+			//account/password expiration, account lock etc.
+			// check AuthenticationException.class siblings
 		}else{
-			throw new BadCredentialsException("invalid password!");
+			throw new UsernameNotFoundException("unknown username");
 		}
-
-		//here you can provide even more security checks like 
-		//account/password expiration, account lock etc.
-		// check AuthenticationException.class siblings
-	}else{
-		throw new UsernameNotFoundException("unknown username");
 	}
-}
 
 	@Override
 	public boolean supports(Class<?> authentication) {
