@@ -12,14 +12,16 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	protected void configure(HttpSecurity http) throws Exception{
-
+	
 		http
 			.formLogin().permitAll()
 		.and()
 			.authorizeRequests()
 			.antMatchers("/hello").hasRole("USER")
 			.antMatchers("/hello", "/greeting").hasRole("ADMIN")
-			.anyRequest().authenticated();
+			.anyRequest().authenticated()
+		.and()
+			.exceptionHandling().accessDeniedPage("/unauthorized");
 	}
 
 	@Autowired
