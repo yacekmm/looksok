@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Configuration;
 public class MyMimeMapper implements EmbeddedServletContainerCustomizer {
 	@Override
 	public void customize(ConfigurableEmbeddedServletContainer container) {
-		MimeMappings mappings = new MimeMappings(MimeMappings.DEFAULT);
-		mappings.add("manifest", "text/cache-manifest");
-		container.setMimeMappings(mappings);
-		System.out.println("\n\n\nTomcat mimeTypes customized!!!\n\n");
+//		MimeMappings mappings = new MimeMappings(MimeMappings.DEFAULT);
+//		mappings.add("manifest", "text/cache-manifest");
+//		container.setMimeMappings(mappings);
+//		System.out.println("\n\n\nTomcat mimeTypes customized!!!\n\n");
 	}
 }

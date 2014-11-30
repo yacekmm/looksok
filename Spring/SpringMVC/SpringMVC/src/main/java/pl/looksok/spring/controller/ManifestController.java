@@ -11,24 +11,19 @@ public class ManifestController {
 
 		StringBuilder strManiFstBuilder = new StringBuilder();
 		strManiFstBuilder.append("CACHE MANIFEST\n");
-//		strManiFstBuilder.append("#v1");
+		strManiFstBuilder.append("#v1\n");
 //
 		strManiFstBuilder.append("CACHE:\n");
-		strManiFstBuilder.append("/offline.html\n");
+		strManiFstBuilder.append("/err.html\n");
+		strManiFstBuilder.append("/greeting\n");
 
 //		strManiFstBuilder.append("NETWORK:");
 //		strManiFstBuilder.append("*");
 
 		strManiFstBuilder.append("FALLBACK:\n");
-		strManiFstBuilder.append("/ /offline.html\n"); 
+		strManiFstBuilder.append("/ /err.html\n"); 
 
-		System.out.println("\n\n\n\n---------------\nGetting offline.MANIFEST file!\n--------\n\n\n");
+		System.out.println("\n---------------\nGetting offline.MANIFEST file!\n--------\n");
 		return strManiFstBuilder.toString();
-	}
-	
-	@RequestMapping(value = "/offline", produces = "text/html")
-	public String offlineHtml() {
-		System.out.println("\n\n\n\n---------------\nGetting offline.html file!\n--------\n\n\n");
-		return "offline";
 	}
 }
