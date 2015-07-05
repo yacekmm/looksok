@@ -6,7 +6,7 @@ apply plugin: 'application'
 
 mainClassName = "com.looksok.cache.Main"
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
