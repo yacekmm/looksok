@@ -4,19 +4,17 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
-/**
- * Created by Jacek Milewski (looksok.wordpress.com)
- */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello, Cache!");
 
         CacheDemo cacheDemo = new CacheDemo(new DataDao());
         cacheDemo.initCache();
-        cacheDemo.getValue("Orange");
-        cacheDemo.getValue("Orange");
-        cacheDemo.getValue("Orange");
-        cacheDemo.getValue("Orange");
+
+        for (int i = 0; i < 35; i++) {
+            cacheDemo.getValue("Orange");
+            Thread.sleep(1000);
+        }
     }
 }

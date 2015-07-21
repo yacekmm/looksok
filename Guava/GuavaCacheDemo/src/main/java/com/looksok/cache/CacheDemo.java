@@ -7,9 +7,6 @@ import com.google.common.cache.LoadingCache;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Jacek Milewski (looksok.wordpress.com)
- */
 public class CacheDemo {
 
     LoadingCache<String, String> cache;
@@ -21,7 +18,7 @@ public class CacheDemo {
 
     public void initCache() {
         cache = CacheBuilder.newBuilder()
-//                .expireAfterAccess(1, TimeUnit.MICROSECONDS)
+                .expireAfterWrite(5000, TimeUnit.MILLISECONDS)
                 .build(new CacheLoader<String, String>() {
                     @Override
                     public String load(String key) throws Exception {
