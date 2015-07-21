@@ -12,8 +12,8 @@ public class Main {
         CacheDemo cacheDemo = new CacheDemo(new DataDao());
         cacheDemo.initCache();
 
-        for (int i = 0; i < 35; i++) {
-            cacheDemo.getValue("Orange");
+        for (int i = 0; i < 20; i++) {
+            cacheDemo.getValue("Blue");
             Thread.sleep(1000);
         }
     }

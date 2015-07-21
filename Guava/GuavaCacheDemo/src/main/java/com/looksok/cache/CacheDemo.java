@@ -18,7 +18,7 @@ public class CacheDemo {
 
     public void initCache() {
         cache = CacheBuilder.newBuilder()
-                .expireAfterWrite(5000, TimeUnit.MILLISECONDS)
+                .expireAfterWrite(5, TimeUnit.SECONDS)
                 .build(new CacheLoader<String, String>() {
                     @Override
                     public String load(String key) throws Exception {
@@ -30,7 +30,7 @@ public class CacheDemo {
     public String getValue(String key) {
         try {
             String value = cache.get(key);
-            System.out.println("getting value from cache for '" + key + "': " + value);
+            System.out.println("got value from cache for '" + key + "': " + value);
             return value;
         } catch (ExecutionException e) {
             System.out.println("Exception getting value for key '" + key + "': " + e.getMessage());
