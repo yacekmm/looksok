@@ -14,7 +14,7 @@ public class Main {
     private static Multimap<String, Integer> playerScoresMultimap = HashMultimap.create();
 
     public static void main(String[] args){
-        System.out.println("Hello Multimap demo!");
+        System.out.println("Multimap demo!");
 
         addToOldStyleMultimap("Bob", 10);
         addToOldStyleMultimap("Bob", 20);
@@ -30,7 +30,6 @@ public class Main {
     }
 
     private static void addToOldStyleMultimap(String playerName, int scoreToAdd) {
-
         List<Integer> scoresList = new ArrayList<Integer>();
         if(playerScoresMap.containsKey(playerName)){
             scoresList = playerScoresMap.get(playerName);
