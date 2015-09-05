@@ -46,3 +46,7 @@ Guava/GuavaCacheDemo/.gradle/
 Guava/GuavaMultiMap/.idea/
 Guava/Initializers/.gradle/
 Guava/Initializers/.idea/
+**/.gradle/2.1/taskArtifacts/cache.properties
+**/.gradle/**
+**/.idea/
+Guava/RateLimiter/build/
