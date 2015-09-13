@@ -10,8 +10,8 @@ public class Main {
 
         ListenableFutureDemo demo = new ListenableFutureDemo();
 
-        demo.executeLongRunningTask();
+        String result = demo.executeLongRunningTask();
 
-        System.out.println(LocalTime.now() + " Main method completed!");
+        System.out.println(LocalTime.now() + " Main method completed: " + result);
     }
 }
