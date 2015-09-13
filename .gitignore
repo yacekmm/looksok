@@ -51,4 +51,5 @@ Guava/Initializers/.idea/
 **/.idea/
 Guava/RateLimiter/build/
 Guava/RateLimiter/out/
-Guava/RateLimiter/out/
+Guava/Future/build/**
+Guava/Future/out/**
