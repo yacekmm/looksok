@@ -3,11 +3,13 @@ package com.looksok.future;
 import java.time.LocalTime;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.function.Supplier;
 
 public class Main {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        log("Hello, CompletableFuture!");
+    public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
+        log("Starting the demo");
 
         CompletableFuture future = CompletableFuture.supplyAsync(() -> {
             log("Starting task in CompletableFuture");
@@ -16,8 +18,14 @@ public class Main {
             return completionTime;
         });
 
+        log("Continuing main thread execution");
+
+        Thread.sleep(1000);
+
         String result = (String) future.get();
-        log("get result is: " + result);
+//        String result = (String) future.getNow("Task not yet completed");
+//        String result = (String) future.get(3, TimeUnit.SECONDS);
+        log("Future get result is: " + result);
     }
 
     private static String executeLongRunningProcess() {
