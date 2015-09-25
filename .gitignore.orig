@@ -1,0 +1,61 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+Spring/.metadata/
+*.classpath
+*.project
+Spring/SpringSecurity/.settings/
+Spring/SpringStringExternalization/.settings/
+Spring/SpringSecurity/.gradle/
+Guava/GuavaCacheDemo/.idea/
+Guava/GuavaCacheDemo/.gradle/
+Guava/GuavaMultiMap/.idea/
+Guava/Initializers/.gradle/
+Guava/Initializers/.idea/
+**/.gradle/2.1/taskArtifacts/cache.properties
+**/.gradle/**
+**/.idea/
+Guava/RateLimiter/build/
+Guava/RateLimiter/out/
+<<<<<<< HEAD
+Guava/Future/build/**
+Guava/Future/out/**
+=======
+Guava/RateLimiter/out/
+*.iml
+Java/CompletableFutureDemo/out/
+>>>>>>> Future init commit
