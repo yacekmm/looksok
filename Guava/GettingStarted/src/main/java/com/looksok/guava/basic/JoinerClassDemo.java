@@ -32,6 +32,12 @@ public class JoinerClassDemo {
         System.out.println("\nGUAVA JOINER result:\n\t" + result);
     }
 
+    private void runJoinWithGuavaJoinerNullSubstitution() {
+
+        String result = Joiner.on(SEPARATOR).useForNull("EMPTY VALUE").join(listOfStrings);
+
+        System.out.println("\nGUAVA JOINER with null substitution result:\n\t" + result);
+    }
 
     private void runJoinWithGuavaJoinerPlusExtraElements() {
 
@@ -41,13 +47,6 @@ public class JoinerClassDemo {
         String extendedResult = Joiner.on(SEPARATOR).skipNulls().join(builder, "Strawberry");
 
         System.out.println("\nGUAVA JOINER result with extension:\n\t" + extendedResult);
-    }
-
-    private void runJoinWithGuavaJoinerNullSubstitution() {
-
-        String result = Joiner.on(SEPARATOR).useForNull("EMPTY VALUE").join(listOfStrings);
-
-        System.out.println("\nGUAVA JOINER with null substitution result:\n\t" + result);
     }
 
     private void runGuavaJoinerOnMap() {
