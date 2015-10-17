@@ -54,3 +54,5 @@ Guava/RateLimiter/out/
 Guava/Future/build/**
 Guava/Future/out/**
 Java/CompletableFutureDemo/out/
+Guava/GettingStarted/out/
+*.iml
