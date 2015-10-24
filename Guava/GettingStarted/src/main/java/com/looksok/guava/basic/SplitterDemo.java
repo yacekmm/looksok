@@ -4,6 +4,7 @@ import com.google.common.base.Splitter;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class SplitterDemo {
 
@@ -15,7 +16,7 @@ public class SplitterDemo {
         runJavaDemo(csvRow);
         runGuavaEagerDemo(csvRow);
         runGuavaLazyDemo(csvRow);
-        runMapSplitterDemo();
+        runMapSplitterDemo(mapString);
     }
 
     private void runJavaDemo(String stringToSplit) {
@@ -37,5 +38,12 @@ public class SplitterDemo {
 
         System.out.println("\nGuava Splitter result:\n");
         result.forEach(System.out::println);
+    }
+
+    private void runMapSplitterDemo(String mapString) {
+        Splitter.MapSplitter mapSplitter = Splitter.on(",").withKeyValueSeparator("=");
+        Map<String, String> result = mapSplitter.split(mapString);
+
+        System.out.println("\nGuava MapSplitter result:\n" + result);
     }
 }
