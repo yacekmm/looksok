@@ -1,5 +1,6 @@
 package com.looksok.path;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.LinkOption;
@@ -10,11 +11,11 @@ public class PathDemo {
 
     public void run() {
         //get current absolute path on default filesystem
-        Path path = Paths.get("").toAbsolutePath();
-        System.out.println("Current working dir absolute path is: " + path);
+        Path currentPath = Paths.get("").toAbsolutePath();
+        System.out.println("Current working dir absolute path is: " + currentPath);
 
         //analyze linux path properties
-        path = Paths.get("/var/lib/jenkins/jobs/sampleJob");
+        Path path = Paths.get("/var/lib/jenkins/jobs/sampleJob");
         System.out.println("\nSample linux path that will be analyzed: " + path.toAbsolutePath());
         System.out.println("Number of segments in path: " + path.getNameCount());
         System.out.println("Parent in path: " + path.getParent());
@@ -23,10 +24,10 @@ public class PathDemo {
 
         //resolve symlink target file location
         try {
-            path = Paths.get("/var/log/logFile");
-            System.out.println("\nReal symlink path: " + path.toRealPath());
+            Path symLinkPath = Paths.get("/var/log/logFile");
+            System.out.println("\nReal symlink path: " + symLinkPath.toRealPath());
         } catch (IOException e) {
-            System.out.println("\nFile does not exist: " + path);
+            System.out.println("\nFile does not exist: " + e.getMessage());
         }
 
         //Converting path: joining
@@ -34,5 +35,18 @@ public class PathDemo {
         Path relativeConfigPath = Paths.get("conf/app.properties");
         Path propertiesFilesPath = currentDir.resolve(relativeConfigPath);
         System.out.println("\nComplete path after resolve(): " + propertiesFilesPath.toAbsolutePath());
+
+        //get relative Path between two other Paths
+        Path logsDir = Paths.get("/var/log/myapp");
+        Path appDir = Paths.get("/var/lib/myapp");
+        Path relativePathToLogs = appDir.relativize(logsDir);
+        System.out.println("\nRelative path from app to logs: " + relativePathToLogs);
+
+        //Interfacing to Java's existing File class
+        File file = new File("./PathDemo.java");
+        Path pathFromFile = file.toPath();
+        System.out.println("\nPath created from file: " + pathFromFile.toAbsolutePath().normalize());
+        file = pathFromFile.toFile();
+        System.out.println("\nfile created from Path: " + file);
     }
 }
