@@ -24,9 +24,15 @@ public class PathDemo {
         //resolve symlink target file location
         try {
             path = Paths.get("/var/log/logFile");
-            path.toRealPath();
+            System.out.println("\nReal symlink path: " + path.toRealPath());
         } catch (IOException e) {
-            System.out.println("File odes not exist: " + path);
+            System.out.println("\nFile does not exist: " + path);
         }
+
+        //Converting path: joining
+        Path currentDir = Paths.get("");
+        Path relativeConfigPath = Paths.get("conf/app.properties");
+        Path propertiesFilesPath = currentDir.resolve(relativeConfigPath);
+        System.out.println("\nComplete path after resolve(): " + propertiesFilesPath.toAbsolutePath());
     }
 }
