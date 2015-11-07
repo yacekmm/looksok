@@ -56,3 +56,4 @@ Guava/Future/out/**
 Java/CompletableFutureDemo/out/
 Guava/GettingStarted/out/
 *.iml
+*.class
