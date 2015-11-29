@@ -13,7 +13,7 @@ public class MyEvent {
         this.eventId = eventId;
     }
 
-    public void print() {
+    public void handle() {
         log.info("Serving event with id: " + eventId);
     }
 

@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
-public class EventProducer extends Thread{
+public class EventProducer extends Thread {
     private final BlockingQueue<MyEventWorkUnit<MyEvent>> queue;
     private AtomicInteger idGenerator;
 
@@ -21,20 +21,21 @@ public class EventProducer extends Thread{
     public void run() {
         for (int i = 0; i < 10; i++) {
             boolean wasAdded = false;
+            MyEvent eventToAdd = new MyEvent(idGenerator.getAndIncrement());
             try {
-                MyEvent eventToAdd = new MyEvent(idGenerator.getAndIncrement());
                 wasAdded = queue.offer(new MyEventWorkUnit<>(eventToAdd), 100, TimeUnit.MILLISECONDS);
-                handleResult(wasAdded, eventToAdd);
             } catch (InterruptedException e) {
                 log.info("Adding Thread was interrupted");
+            } finally {
+                handleResult(wasAdded, eventToAdd);
             }
         }
     }
 
     private void handleResult(boolean wasAdded, MyEvent eventToAdd) {
-        if(wasAdded){
+        if (wasAdded) {
             log.info("Event was added to the queue: " + eventToAdd.toString());
-        }else{
+        } else {
             log.warning("Unable to add event to queue due to timeout!");
         }
     }

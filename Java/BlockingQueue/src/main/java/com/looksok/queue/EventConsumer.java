@@ -19,8 +19,8 @@ public class EventConsumer extends Thread{
         while(running){
             try {
                 MyEventWorkUnit<MyEvent> workUnit = queue.take();
-                workUnit.getWorkUnit().print();
-                Thread.sleep(100);
+                workUnit.getWorkUnit().handle();
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
