@@ -36,7 +36,7 @@ public class EventProducer extends Thread {
         if (wasAdded) {
             log.info("Event was added to the queue: " + eventToAdd.toString());
         } else {
-            log.warning("Unable to add event to queue due to timeout!");
+            log.warning("Unable to add event to queue due to timeout: " + eventToAdd.toString());
         }
     }
 }
