@@ -4,23 +4,17 @@ import java.util.concurrent.BlockingQueue;
 
 public class EventConsumer extends Thread{
     private final BlockingQueue<MyEventWorkUnit<MyEvent>> queue;
-    boolean running = true;
 
     public EventConsumer(BlockingQueue<MyEventWorkUnit<MyEvent>> queue) {
         this.queue = queue;
     }
 
-    public synchronized void shutdown() {
-        this.running = false;
-    }
-
     @Override
     public void run() {
-        while(running){
+        while(true){
             try {
                 MyEventWorkUnit<MyEvent> workUnit = queue.take();
                 workUnit.getWorkUnit().handle();
-                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

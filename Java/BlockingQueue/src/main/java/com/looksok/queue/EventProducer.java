@@ -27,12 +27,12 @@ public class EventProducer extends Thread {
             } catch (InterruptedException e) {
                 log.info("Adding Thread was interrupted");
             } finally {
-                handleResult(wasAdded, eventToAdd);
+                handleAddResult(wasAdded, eventToAdd);
             }
         }
     }
 
-    private void handleResult(boolean wasAdded, MyEvent eventToAdd) {
+    private void handleAddResult(boolean wasAdded, MyEvent eventToAdd) {
         if (wasAdded) {
             log.info("Event was added to the queue: " + eventToAdd.toString());
         } else {

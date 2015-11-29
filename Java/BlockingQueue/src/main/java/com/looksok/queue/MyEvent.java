@@ -5,9 +5,9 @@ import java.util.logging.Logger;
 
 public class MyEvent {
 
-    private final int eventId;
+    private static final Logger log = Logger.getLogger(MethodHandles.lookup().lookupClass().getTypeName());
 
-    private static final Logger log = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
+    private final int eventId;
 
     public MyEvent(int eventId) {
         this.eventId = eventId;
@@ -15,6 +15,11 @@ public class MyEvent {
 
     public void handle() {
         log.info("Serving event with id: " + eventId);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

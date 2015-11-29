@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BlockingQueue<MyEventWorkUnit<MyEvent>> queue = new ArrayBlockingQueue<>(1);
+        BlockingQueue<MyEventWorkUnit<MyEvent>> queue = new ArrayBlockingQueue<>(3);
 
         EventProducer producer = new EventProducer(queue);
         EventConsumer consumer = new EventConsumer(queue);
