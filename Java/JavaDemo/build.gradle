@@ -2,6 +2,9 @@ group 'com.looksok.javademo'
 version '1.0.0'
 
 apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "com.looksok.javademo.Main"
 
 sourceCompatibility = 1.8
 
