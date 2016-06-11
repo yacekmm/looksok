@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.looksok.spring.aop.MyAnnotation;
 
+import java.lang.invoke.MethodHandles;
+
 @RestController
 public class MyController {
 
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+    private Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @RequestMapping(value = "/api/my-resource")
     @MyAnnotation
