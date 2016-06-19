@@ -30,13 +30,15 @@ public class MyController {
         return myJmxValue;
     }
 
+    @ManagedOperation
+    public void logMyJmxValue(String requester){
+        log.info("{} requested to log JmxManagedValue which is: {}",
+                requester, myJmxValue);
+    }
+
     @RequestMapping(value = "/api/my-jmx-value", method = GET)
     public int getManagedAttributeValue(){
         return myJmxValue;
     }
 
-    @ManagedOperation
-    public void logMyJmxValue(String requester){
-        log.info("{} requested to log JmxManagedValue which is: {}", requester, myJmxValue);
-    }
 }
