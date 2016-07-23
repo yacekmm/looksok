@@ -15,8 +15,11 @@ public class SecuredController {
         return "You have access to secured API!";
     }
 
-    @RequestMapping(value = "/open", method = GET, produces = TEXT_PLAIN_VALUE)
-    public String openedGet(){
-        return "this API does not require authentication";
+    @RequestMapping(value = "/admin", method = GET, produces = TEXT_PLAIN_VALUE)
+    public String adminGet(){
+        return "Welcome, Admin";
     }
+
+    @RequestMapping(value = "/open", method = GET, produces = TEXT_PLAIN_VALUE)
+    public String openedGet(){ return "this API does not require authentication"; }
 }
